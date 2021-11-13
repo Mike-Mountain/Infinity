@@ -1,0 +1,45 @@
+<div class='app-layout' dashLayout>
+  <header class='top-nav flex-start'>
+    <dash-top-navigation></dash-top-navigation>
+  </header>
+
+  <aside class='left-nav'>
+    <dash-side-navigation
+      side='left'
+      [navItems]='leftNavItems'
+    ></dash-side-navigation>
+  </aside>
+
+  <aside class='left-content'>
+    <dash-content-navigation></dash-content-navigation>
+  </aside>
+
+  <main class='main-content'>
+    <div class='content-nav'></div>
+    <div class='content'>
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <aside class='right-content'>
+    <div class='content-nav'></div>
+    <div class='run-content'>
+      <router-outlet name='run'></router-outlet>
+    </div>
+  </aside>
+
+  <aside class='right-nav'>
+    <dash-side-navigation
+      side='right'
+      [navItems]='rightNavItems'
+    ></dash-side-navigation>
+  </aside>
+
+  <section class='bottom-content'></section>
+
+  <section class='bottom-nav'>
+    <dash-bottom-navigation></dash-bottom-navigation>
+  </section>
+
+  <footer class='info-container'></footer>
+</div>

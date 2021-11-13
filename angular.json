@@ -5,7 +5,7 @@
       "projectType": "application",
       "root": "apps/dashboard",
       "sourceRoot": "apps/dashboard/src",
-      "prefix": "infinity",
+      "prefix": "dash",
       "architect": {
         "build": {
           "builder": "@nrwl/angular:webpack-browser",

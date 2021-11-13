@@ -1,0 +1,30 @@
+.content-tabs {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.content-tab-button {
+  width: max-content;
+  height: 2.5rem;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.active-tab {
+  border-bottom: 1px solid var(--primary);
+}
+
+.close-tab-button {
+  position: absolute;
+  right: .5rem;
+  margin: auto 0;
+  width: 20px;
+  height: 20px;
+  .mat-icon {
+    font-size: 15px;
+    height: 15px;
+    width: 15px;
+  }
+}

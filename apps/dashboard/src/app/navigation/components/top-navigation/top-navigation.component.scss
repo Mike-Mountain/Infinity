@@ -1,0 +1,31 @@
+.breadcrumbs {
+  margin-left: .75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.crumb {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.app-nav {
+  min-width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icon-btn-sm {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .mat-icon {
+    font-size: 15px;
+    height: 15px;
+    width: 15px;
+  }
+}

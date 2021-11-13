@@ -1,0 +1,90 @@
+.app-layout {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  //grid-template-columns: 1.5rem minmax(max-content, 1fr) 2fr minmax(max-content, 2fr) 1.5rem;
+  //grid-template-rows: 2rem 3fr 0 1.5rem 1.5rem;
+  grid-template-areas:
+  "topNav topNav topNav topNav topNav"
+  "leftNav leftContent mainContent rightContent rightNav"
+  "bottomContent bottomContent bottomContent bottomContent bottomContent"
+  "bottomNav bottomNav bottomNav bottomNav bottomNav"
+  "bottomInfo bottomInfo bottomInfo bottomInfo bottomInfo";
+}
+
+.close-file-navigation {
+  grid-template-columns: 1.5rem 0 4fr;
+}
+
+.open-bottom-navigation {
+  grid-template-rows: 2rem 3fr minmax(max-content, 1fr) 1.5rem 1.5rem;
+}
+
+.top-nav {
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--menuBg);
+  grid-area: topNav;
+}
+
+.left-nav {
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--menuBg);
+  grid-area: leftNav;
+}
+
+.left-content {
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--contenBg);
+  grid-area: leftContent;
+  max-height: calc(100vh - 5rem); // 5rem = 2rem + 1.5rem + 1.5rem = top nav + bottom nav + bottom info
+}
+
+.main-content {
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--contenBg);
+  grid-area: mainContent;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+}
+
+.content-nav {
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--menuBg);
+}
+
+.content {
+  padding: 1rem;
+}
+
+.right-content {
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--contenBg);
+  grid-area: rightContent;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+}
+
+.right-nav {
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--menuBg);
+  grid-area: rightNav;
+}
+
+.bottom-content {
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--contentBg);
+  grid-area: bottomContent;
+}
+
+.bottom-nav {
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--menuBg);
+  grid-area: bottomNav;
+  padding: 0 !important;
+}
+
+.info-container {
+  box-shadow: 0 0 0 .02rem var(--border);
+  background-color: var(--menuBg);
+  grid-area: bottomInfo;
+}
