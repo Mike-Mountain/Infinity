@@ -1,0 +1,61 @@
+.dash-basic-button, .dash-icon-button {
+  @extend .mat-button;
+  box-sizing: border-box;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  padding: 0 16px;
+  overflow: visible;
+  transition: background-color .2s ease;
+}
+
+.dash-icon-button {
+  padding: 0;
+  min-width: 0;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  line-height: 40px;
+  border-radius: 50%;
+}
+
+.button-primary.button-active {
+  background-color: rgba(var(--primaryValues), 0.4) !important;
+}
+
+.button-accent.button-active {
+  background-color: rgba(var(--accentValues), 0.4) !important;
+}
+
+.button-warn.button-active {
+  background-color: rgba(var(--warnValues), 0.4) !important;
+}
+
+.button-primary {
+  &:hover {
+    background-color: rgba(var(--primaryValues), 0.2) !important;
+  }
+}
+
+.button-accent {
+  &:hover {
+    background-color: rgba(var(--accentValues), 0.2) !important;
+  }
+}
+
+.button-warn {
+  &:hover {
+    background-color: rgba(var(--warnValues), 0.2) !important;
+  }
+}
+
