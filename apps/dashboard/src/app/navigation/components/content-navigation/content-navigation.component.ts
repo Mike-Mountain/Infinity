@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavigationTab, TabType } from '../../models/navigation.model';
+import { NavigationService } from '../../services/navigation.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'dash-content-navigation',
@@ -9,34 +11,22 @@ import { Router } from '@angular/router';
 })
 export class ContentNavigationComponent implements OnInit {
 
-  // activeTreeNode: string;
-  // activeFiles$: Observable<ProjectNode[]>;
+  @Input() type: TabType | undefined;
+  tabs$: Observable<NavigationTab[]> | undefined;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private navigationService: NavigationService) {
   }
 
   ngOnInit(): void {
-    // this.activeFiles$ = this.fileNavigationQuery.select('activeFiles');
-    // this.fileNavigationQuery.select('activeTreeNode').subscribe(activeNode => {
-    //   activeNode ?
-    //     this.activeTreeNode = activeNode :
-    //     this.router.navigateByUrl('/');
-    // });
+    this.tabs$ = (this.type && this.type === 'runTab') ?
+      this.navigationService.getRunTabs() :
+      this.navigationService.getContentTabs();
   }
 
-  public navigateToFile(node: any): void {
-    // TODO: Open the tree when navigating the content nav
-    // this.fileNavigationService.updateActiveNode(node.name);
-    // if (node.isProjectRoot) {
-    //   this.fileNavigationService.setSelectedProject(node);
-    // } else {
-    //   this.fileNavigationService.setSelectedFile(node);
-    // }
-    // this.router.navigateByUrl(`/projects/${node.path}`);
-  }
-
-  public closeTab(file: any, event: MouseEvent) {
-    // this.fileNavigationService.removeSelectedFile(file);
-    // event.stopPropagation();
+  closeTab(tab: NavigationTab, event: MouseEvent) {
+    this.navigationService.removeTab(tab);
+    event.stopImmediatePropagation();
+    event.preventDefault();
   }
 }

@@ -11,18 +11,25 @@
   </aside>
 
   <aside class='left-content'>
-    <dash-content-navigation></dash-content-navigation>
   </aside>
 
   <main class='main-content'>
-    <div class='content-nav'></div>
+    <div class='content-nav'>
+      <dash-content-navigation
+        type='contentTab'
+      ></dash-content-navigation>
+    </div>
     <div class='content'>
       <router-outlet></router-outlet>
     </div>
   </main>
 
   <aside class='right-content'>
-    <div class='content-nav'></div>
+    <div class='content-nav'>
+      <dash-content-navigation
+        type='runTab'
+      ></dash-content-navigation>
+    </div>
     <div class='run-content'>
       <router-outlet name='run'></router-outlet>
     </div>
