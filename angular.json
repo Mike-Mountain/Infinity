@@ -43,8 +43,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/dashboard/src/environments/environment.ts",
-                  "with": "apps/dashboard/src/environments/environment.prod.ts"
+                  "replace": "config/environment.ts",
+                  "with": "config/prod/environment.prod.ts"
                 }
               ],
               "outputHashing": "all",
@@ -52,13 +52,33 @@
                 "path": "apps/dashboard/webpack.prod.config.js"
               }
             },
-            "development": {
+            "dev": {
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "config/environment.ts",
+                  "with": "config/dev/environment.dev.ts"
+                }
+              ]
+            },
+            "local": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "config/environment.ts",
+                  "with": "config/local/environment.local.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -69,11 +89,14 @@
             "production": {
               "browserTarget": "dashboard:build:production"
             },
-            "development": {
-              "browserTarget": "dashboard:build:development"
+            "dev": {
+              "browserTarget": "dashboard:build:dev"
+            },
+            "local": {
+              "browserTarget": "dashboard:build:local"
             }
           },
-          "defaultConfiguration": "development",
+          "defaultConfiguration": "local",
           "options": {
             "port": 5000
           }
@@ -111,14 +134,14 @@
       "tags": []
     },
     "dashboard-e2e": {
-      "root": "apps/dashboard-e2e",
-      "sourceRoot": "apps/dashboard-e2e/src",
+      "root": "apps/e2e/dashboard-e2e",
+      "sourceRoot": "apps/e2e/dashboard-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/dashboard-e2e/cypress.json",
+            "cypressConfig": "apps/e2e/dashboard-e2e/cypress.json",
             "devServerTarget": "dashboard:serve:development"
           },
           "configurations": {
@@ -131,140 +154,44 @@
           "builder": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["apps/dashboard-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["apps/e2e/dashboard-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
       "implicitDependencies": ["dashboard"]
     },
-    "documentation": {
-      "projectType": "application",
-      "root": "apps/documentation",
-      "sourceRoot": "apps/documentation/src",
-      "prefix": "infinity",
+    "dashboard-lib": {
+      "projectType": "library",
+      "root": "libs/dashboard-lib",
+      "sourceRoot": "libs/dashboard-lib/src",
+      "prefix": "dash-lib",
       "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/dashboard-lib"],
           "options": {
-            "outputPath": "dist/apps/documentation",
-            "index": "apps/documentation/src/index.html",
-            "main": "apps/documentation/src/main.ts",
-            "polyfills": "apps/documentation/src/polyfills.ts",
-            "tsConfig": "apps/documentation/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/documentation/src/favicon.ico",
-              "apps/documentation/src/assets"
-            ],
-            "styles": ["apps/documentation/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "apps/documentation/src/environments/environment.ts",
-                  "with": "apps/documentation/src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "documentation:build:production"
-            },
-            "development": {
-              "browserTarget": "documentation:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "documentation:build"
+            "jestConfig": "libs/dashboard-lib/jest.config.js",
+            "passWithNoTests": true
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/documentation/src/**/*.ts",
-              "apps/documentation/src/**/*.html"
+              "libs/dashboard-lib/src/**/*.ts",
+              "libs/dashboard-lib/src/**/*.html"
             ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/documentation"],
-          "options": {
-            "jestConfig": "apps/documentation/jest.config.js",
-            "passWithNoTests": true
           }
         }
       },
       "tags": []
     },
-    "documentation-e2e": {
-      "root": "apps/documentation-e2e",
-      "sourceRoot": "apps/documentation-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/documentation-e2e/cypress.json",
-            "devServerTarget": "documentation:serve:development"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "documentation:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/documentation-e2e/**/*.{js,ts}"]
-          }
-        }
-      },
-      "tags": [],
-      "implicitDependencies": ["documentation"]
-    },
     "shared": {
       "projectType": "library",
       "root": "libs/shared",
       "sourceRoot": "libs/shared/src",
-      "prefix": "infinity",
+      "prefix": "shared",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",

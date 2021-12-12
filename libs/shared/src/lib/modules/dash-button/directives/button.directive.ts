@@ -2,7 +2,7 @@ import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { ButtonColor, ButtonType } from '../models/dash-button.model';
 
 @Directive({
-  selector: '[dash-button]'
+  selector: '[sharedButton]'
 })
 export class ButtonDirective implements OnInit {
 

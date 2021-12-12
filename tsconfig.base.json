@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@infinity/config": ["config/index.ts"],
+      "@infinity/dashboard-lib": ["libs/dashboard-lib/src/index.ts"],
       "@infinity/shared": ["libs/shared/src/index.ts"]
     }
   },

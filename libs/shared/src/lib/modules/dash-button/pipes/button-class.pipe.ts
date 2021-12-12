@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ButtonColor, ButtonType } from '../models/dash-button.model';
+import { ButtonType } from '../models/dash-button.model';
 
 @Pipe({
   name: 'buttonClass'
