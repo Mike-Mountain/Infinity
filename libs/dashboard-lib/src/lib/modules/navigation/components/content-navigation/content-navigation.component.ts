@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavigationTab, TabType } from '../../models/navigation.model';
-import { NavigationService } from '../../services/navigation.service';
+import { NavigationTab, TabType } from '@infinity/schemas';
+import { NavigationService } from '@infinity/navigation';
 import { Observable } from 'rxjs';
 
 @Component({

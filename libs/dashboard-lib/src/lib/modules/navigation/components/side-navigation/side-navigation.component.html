@@ -3,7 +3,7 @@
     <div class="vertical-navigation">
       <ng-container *ngFor='let navItem of navItems; let idx = index'>
         <button
-          sharedButton
+          featureButton
           [ngClass]="'vertical-tab vertical-' + side"
           (click)='updateContentState()'
         >

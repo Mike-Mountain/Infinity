@@ -1,6 +1,6 @@
 import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { LayoutService } from '../../services/layout.service';
-import { LayoutModel } from '../../models/layout.model';
+import { LayoutModel } from '@infinity/schemas';
+import { LayoutService } from '@infinity/layout';
 
 @Directive({
   selector: '[dashLibLayout]'

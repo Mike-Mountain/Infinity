@@ -10,18 +10,17 @@
   <nav class='app-nav'>
     <ng-container *ngIf='selectedProject | async as project; else disabled'>
       <button
-        sharedButton
+        featureButton
         [buttonType]='"icon"'
         [color]='"primary"'
         class='icon-btn-sm flex-center'
-        (click)='navigateToProject(project)'
       >
         <mat-icon class='icon-sm'>play_arrow</mat-icon>
       </button>
     </ng-container>
     <ng-template #disabled>
       <button
-        sharedButton
+        featureButton
         [buttonType]='"icon"'
         [color]='"primary"'
         class='icon-btn-sm flex-center'
@@ -31,7 +30,7 @@
     </ng-template>
     |
     <button
-      sharedButton
+      featureButton
       [buttonType]='"icon"'
       [color]='"primary"'
       class='icon-btn-sm flex-center'
@@ -39,7 +38,7 @@
       <mat-icon class='icon-sm'>code</mat-icon>
     </button>
     <button
-      sharedButton
+      featureButton
       [buttonType]='"icon"'
       [color]='"primary"'
       class='icon-btn-sm flex-center'
@@ -48,7 +47,7 @@
       <mat-icon class='icon-sm'>help</mat-icon>
     </button>
     <button
-      sharedButton
+      featureButton
       [buttonType]='"icon"'
       [color]='"primary"'
       class='icon-btn-sm flex-center'
@@ -58,7 +57,7 @@
     </button>
     |
     <button
-      sharedButton
+      featureButton
       [buttonType]='"icon"'
       [color]='"primary"'
       class='icon-btn-sm flex-center'
@@ -69,11 +68,10 @@
     <ng-container *ngIf='showSearch'>
       <input
         matInput
-        type='search'
-      />
+        type='search'>
     </ng-container>
     <button
-      sharedButton
+      featureButton
       [color]='"primary"'
       [buttonType]='"icon"'
       class='icon-btn-sm flex-center'

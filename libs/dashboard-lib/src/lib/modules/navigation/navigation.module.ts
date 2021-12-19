@@ -4,8 +4,10 @@ import { BottomNavigationComponent } from './components/bottom-navigation/bottom
 import { ContentNavigationComponent } from './components/content-navigation/content-navigation.component';
 import { SideNavigationComponent } from './components/side-navigation/side-navigation.component';
 import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
-import { DashButtonModule, MaterialModule } from '@infinity/shared';
 import { RouterModule } from '@angular/router';
+import { DashButtonModule } from '@infinity/feature';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -17,9 +19,10 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    MaterialModule,
     DashButtonModule,
-    RouterModule
+    RouterModule,
+    MatIconModule,
+    MatInputModule
   ],
   exports: [
     BottomNavigationComponent,

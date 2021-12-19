@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SideNavItem } from '../../../navigation/models/navigation.model';
+import { SideNavItem } from '@infinity/schemas';
 
 @Component({
   selector: 'dash-lib-layout',

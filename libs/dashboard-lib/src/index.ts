@@ -16,9 +16,9 @@ export * from './lib/modules/navigation/components/top-navigation/top-navigation
 export * from './lib/modules/core/directives/layout/layout.directive';
 
 // models
-export * from './lib/modules/core/models/layout.model';
-export * from './lib/modules/navigation/models/navigation.model';
+export * from '../../shared/schemas/src/lib/layout/layout.model';
+export * from '../../shared/schemas/src/lib/navigation/navigation.model';
 
 // Services
-export * from './lib/modules/core/services/layout.service';
-export * from './lib/modules/navigation/services/navigation.service';
+export * from '../../shared/layout/src/lib/services/layout.service';
+export * from '../../shared/navigation/src/lib/services/navigation.service';

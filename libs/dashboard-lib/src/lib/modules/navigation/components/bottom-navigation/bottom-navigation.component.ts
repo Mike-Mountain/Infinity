@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LayoutService } from '../../../core/services/layout.service';
+import { LayoutService } from '@infinity/layout';
 
 @Component({
   selector: 'dash-lib-bottom-navigation',

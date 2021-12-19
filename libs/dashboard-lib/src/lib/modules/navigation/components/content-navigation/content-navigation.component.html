@@ -1,13 +1,13 @@
 <nav class='content-tabs'>
   <ng-container *ngFor='let tab of (tabs$ | async)'>
     <a
-      sharedButton
+      featureButton
       class='content-tab-button'
       color='primary'
       [routerLink]='tab.path'
     >
       {{tab.name}}
-      <button class='close-tab-button' sharedButton color='primary' buttonType='icon' (click)='closeTab(tab, $event)'>
+      <button class='close-tab-button' featureButton color='primary' buttonType='icon' (click)='closeTab(tab, $event)'>
         <mat-icon>close</mat-icon>
       </button>
     </a>

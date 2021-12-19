@@ -13,27 +13,11 @@ export class TopNavigationComponent implements OnInit {
   public showSearch = false;
   public mockCrumbs = [
     {title: 'Infinitum', route: '/'},
-    {title: 'Projects', route: '/'},
+    {title: 'Projects', route: '/landing'},
   ];
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    // this.selectedProject = this.layoutQuery.select(state => state.activeProject);
-  }
-
-  public navigateToProject(project: string) {
-    // const selectedFile: InfTreeNode = {
-    //   path: project,
-    //   isProjectRoot: true,
-    //   id: '1',
-    //   name: 'Run Application',
-    //   icon: '',
-    //   children: []
-    // }
-    // this.fileNavigationService.setSelectedFile(selectedFile);
-    // this.fileNavigationService.setSelectedProject(selectedFile);
-    // this.fileNavigationService.addActiveFiles(selectedFile);
-    // this.router.navigateByUrl(`/projects/${project}`);
   }
 }

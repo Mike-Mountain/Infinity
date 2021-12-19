@@ -20,7 +20,8 @@ const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
   tsConfigPath,
   [
-    /* mapped paths to share */
+    '@infinity/navigation',
+    '@infinity/layout'
   ],
   workspaceRootPath
 );
@@ -28,16 +29,16 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: 'dashboard',
-    publicPath: 'auto',
+    publicPath: 'auto'
   },
   optimization: {
     runtimeChunk: false,
-    minimize: false,
+    minimize: false
   },
   resolve: {
     alias: {
-      ...sharedMappings.getAliases(),
-    },
+      ...sharedMappings.getAliases()
+    }
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -47,9 +48,13 @@ module.exports = {
         '@angular/common': { singleton: true, strictVersion: true, requiredVersion: '^12.2.0' },
         '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: '^12.2.0' },
         '@angular/router': { singleton: true, strictVersion: true, requiredVersion: '^12.2.0' },
-        ...sharedMappings.getDescriptors(),
-      },
+        '@angular/material': { singleton: true, strictVersion: true, requiredVersion: '^12.2.13' },
+        '@datorama/akita': { singleton: true, strictVersion: true, requiredVersion: '^6.2.4' },
+        '@datorama/akita-ng-entity-service': {singleton: true, strictVersion: true, requiredVersion: '^6.0.0'},
+        '@datorama/akita-ng-router-store': {singleton: true, strictVersion: true, requiredVersion: '^6.0.0'},
+        ...sharedMappings.getDescriptors()
+      }
     }),
-    sharedMappings.getPlugin(),
-  ],
+    sharedMappings.getPlugin()
+  ]
 };
