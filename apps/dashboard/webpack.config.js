@@ -21,7 +21,10 @@ sharedMappings.register(
   tsConfigPath,
   [
     '@infinity/navigation',
-    '@infinity/layout'
+    '@infinity/layout',
+    '@infinity/data/src/lib/stores/blog/blog.store',
+    '@infinity/data/src/lib/stores/blog/blog.service',
+    '@infinity/data/src/lib/stores/blog/blog.query',
   ],
   workspaceRootPath
 );
@@ -29,32 +32,66 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: 'dashboard',
-    publicPath: 'auto'
+    publicPath: 'auto',
   },
   optimization: {
     runtimeChunk: false,
-    minimize: false
+    minimize: false,
   },
   resolve: {
     alias: {
-      ...sharedMappings.getAliases()
-    }
+      ...sharedMappings.getAliases(),
+    },
   },
   plugins: [
     new ModuleFederationPlugin({
-      remotes: {},
+      remotes: {
+        blog: 'blog@http://localhost:4201/remoteEntry.js',
+      },
       shared: {
-        '@angular/core': { singleton: true, strictVersion: true, requiredVersion: '^12.2.0' },
-        '@angular/common': { singleton: true, strictVersion: true, requiredVersion: '^12.2.0' },
-        '@angular/common/http': { singleton: true, strictVersion: true, requiredVersion: '^12.2.0' },
-        '@angular/router': { singleton: true, strictVersion: true, requiredVersion: '^12.2.0' },
-        '@angular/material': { singleton: true, strictVersion: true, requiredVersion: '^12.2.13' },
-        '@datorama/akita': { singleton: true, strictVersion: true, requiredVersion: '^6.2.4' },
-        '@datorama/akita-ng-entity-service': {singleton: true, strictVersion: true, requiredVersion: '^6.0.0'},
-        '@datorama/akita-ng-router-store': {singleton: true, strictVersion: true, requiredVersion: '^6.0.0'},
-        ...sharedMappings.getDescriptors()
-      }
+        '@angular/core': {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: '^12.2.0',
+        },
+        '@angular/common': {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: '^12.2.0',
+        },
+        '@angular/common/http': {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: '^12.2.0',
+        },
+        '@angular/router': {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: '^12.2.0',
+        },
+        '@angular/material': {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: '^12.2.13',
+        },
+        '@datorama/akita': {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: '^6.2.4',
+        },
+        '@datorama/akita-ng-entity-service': {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: '^6.0.0',
+        },
+        '@datorama/akita-ng-router-store': {
+          singleton: true,
+          strictVersion: true,
+          requiredVersion: '^6.0.0',
+        },
+        ...sharedMappings.getDescriptors(),
+      },
     }),
-    sharedMappings.getPlugin()
-  ]
+    sharedMappings.getPlugin(),
+  ],
 };

@@ -5,6 +5,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { RouterModule } from '@angular/router';
 import { LayoutDirective } from './directives/layout/layout.directive';
 import { NavigationModule } from '../navigation/navigation.module';
+import { BlogSharedModule } from '@infinity/feature';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { NavigationModule } from '../navigation/navigation.module';
   imports: [
     CommonModule,
     RouterModule,
-    NavigationModule
+    NavigationModule,
+    BlogSharedModule
   ],
   exports: [LayoutComponent]
 })

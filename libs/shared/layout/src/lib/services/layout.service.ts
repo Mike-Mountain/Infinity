@@ -20,8 +20,8 @@ export class LayoutService {
     return this.layoutSrc.value;
   }
 
-  toggleSideNavigation() {
-    const open = this.getLayout().fileNavigation === '25%';
+  toggleSideNavigation(direction?: 'close' | 'open') {
+    const open = direction ? direction === 'close' : this.getLayout().fileNavigation === '25%';
     this.updateLayout({
       fileNavigation: open ? '0' : '25%'
     });

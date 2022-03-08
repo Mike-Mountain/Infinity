@@ -2,6 +2,7 @@
 export * from './lib/feature.module';
 export * from './lib/modules/shared-core/shared-core.module';
 export * from './lib/modules/dash-button/dash-button.module';
+export * from './lib/modules/blog-shared/blog-shared.module';
 
 // Models
 export * from './lib/modules/dash-button/models/dash-button.model';

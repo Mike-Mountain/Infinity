@@ -22,8 +22,14 @@ export class InitService {
         const tab: NavigationTab = createTab({});
         // const url = this.urlSerializer.parse(event.urlAfterRedirects);
         const url = event.urlAfterRedirects;
-        tab.name = url.split('/')[1];
-        tab.path = url;
+        if (url.includes('landing')) {
+          tab.name = url.split('/')[1];
+          tab.path = url;
+        } else if (url.includes('blog')) {
+          tab.name = url.split('/')[1];
+          tab.path = url;
+          this.layoutService.toggleSideNavigation('open');
+        }
         // Add the new tab to the tab array
         if (tab.name) {
           this.navigationService.addTab(tab);

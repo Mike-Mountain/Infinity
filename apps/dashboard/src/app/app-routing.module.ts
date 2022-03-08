@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from '@infinity/dashboard-lib';
 
 const routes: Routes = [
-  {path: 'landing', component: LandingComponent}
+  { path: 'landing', component: LandingComponent },
+  { path: 'blog', loadChildren: () => import('blog/Module').then(m => m.RemoteEntryModule) }
 ];
 
 @NgModule({
