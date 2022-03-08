@@ -1,14 +1,16 @@
 import { EntityState } from '@datorama/akita';
 import { ResponseBase } from '../response-base/response-base.model';
 
-export type BlogState = EntityState<BlogData>
+export type BlogState = EntityState<BlogPost>
 
 export class BlogPost {
+  id: number;
   title: string;
   content: string;
   imageUrl: string;
 
   constructor(params: any) {
+    this.id = params.id;
     this.title = params.title;
     this.content = params.content;
     this.imageUrl = params.imageUrl;
@@ -16,31 +18,13 @@ export class BlogPost {
 }
 
 export class BlogResponse extends ResponseBase {
-  data: BlogData[];
-  meta: BlogMeta;
+  data: BlogPost[];
+  meta: BlogPagination;
 
   constructor(params: Partial<BlogResponse>) {
     super(params);
-    this.data = params?.data?.map(post => new BlogData(post)) || [];
-    this.meta = new BlogMeta(params?.meta);
-  }
-}
-
-export class BlogData {
-  attributes: BlogPost;
-  id: number;
-
-  constructor(params: BlogData) {
-    this.attributes = new BlogPost(params.attributes);
-    this.id = params.id;
-  }
-}
-
-export class BlogMeta {
-  pagination: BlogPagination;
-
-  constructor(params?: Partial<BlogMeta>) {
-    this.pagination = new BlogPagination(params?.pagination);
+    this.data = params?.data?.map(post => new BlogPost(post)) || [];
+    this.meta = new BlogPagination(params?.meta);
   }
 }
 

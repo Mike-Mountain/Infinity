@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BlogData, BlogResponse } from '@infinity/schemas';
+import { BlogPost, BlogResponse } from '@infinity/schemas';
 import { BlogQuery } from '@infinity/data';
 import { BlogService } from '@infinity/data';
 import { map } from 'rxjs/operators';
@@ -14,7 +14,7 @@ import { NavigationService } from '@infinity/navigation';
 })
 export class BlogListComponent implements OnInit {
 
-  blogPosts$: Observable<BlogData[]> | undefined;
+  blogPosts$: Observable<BlogPost[]> | undefined;
   selectedPostId: number | undefined;
 
   constructor(private blogPostQuery: BlogQuery,
@@ -40,9 +40,9 @@ export class BlogListComponent implements OnInit {
     return Number(id[2]);
   }
 
-  addNavigationTab(post: BlogData) {
+  addNavigationTab(post: BlogPost) {
     this.navigationService.addTab({
-      name: post.attributes.title,
+      name: post.title,
       type: 'contentTab',
       path: `/blog/${post.id}`
     })
