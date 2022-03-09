@@ -9,27 +9,25 @@ import { DashButtonModule } from '@infinity/feature';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
-
 @NgModule({
   declarations: [
     BottomNavigationComponent,
     ContentNavigationComponent,
     SideNavigationComponent,
-    TopNavigationComponent
+    TopNavigationComponent,
   ],
   imports: [
     CommonModule,
     DashButtonModule,
     RouterModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
   ],
   exports: [
     BottomNavigationComponent,
     ContentNavigationComponent,
     SideNavigationComponent,
-    TopNavigationComponent
-  ]
+    TopNavigationComponent,
+  ],
 })
-export class NavigationModule {
-}
+export class NavigationModule {}

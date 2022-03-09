@@ -11,31 +11,32 @@
 }
 
 .text-justify {
-  text-align: justify !important
+  text-align: justify !important;
 }
 
 .text-nowrap {
-  white-space: nowrap !important
+  white-space: nowrap !important;
 }
 
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 .text-left {
-  text-align: left !important
+  text-align: left !important;
 }
 
 .text-right {
-  text-align: right !important
+  text-align: right !important;
 }
 
 .text-center {
-  text-align: center !important
+  text-align: center !important;
 }
 
 .text-monospace {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,
+    Courier New, monospace;
 }

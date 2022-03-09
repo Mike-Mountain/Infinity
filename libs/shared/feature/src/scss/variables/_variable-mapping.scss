@@ -1,6 +1,6 @@
-@import "../theme/palettes/primary";
-@import "../theme/palettes/accent";
-@import "../theme/palettes/warn";
+@import '../theme/palettes/primary';
+@import '../theme/palettes/accent';
+@import '../theme/palettes/warn';
 
 :root {
   --primary: #{map-get($primary, 500)};

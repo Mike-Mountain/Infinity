@@ -1,15 +1,15 @@
 <nav class="vertical-nav">
-  <ng-container *ngIf='navItems.length > 0'>
+  <ng-container *ngIf="navItems.length > 0">
     <div class="vertical-navigation">
-      <ng-container *ngFor='let navItem of navItems; let idx = index'>
+      <ng-container *ngFor="let navItem of navItems; let idx = index">
         <button
           featureButton
           [ngClass]="'vertical-tab vertical-' + side"
-          (click)='updateContentState()'
+          (click)="updateContentState()"
         >
-          <small class='flex-center'>
-            <mat-icon class='icon-sm'>folder</mat-icon>
-            {{idx + 1}}: {{navItem.name}}
+          <small class="flex-center">
+            <mat-icon class="icon-sm">folder</mat-icon>
+            {{ idx + 1 }}: {{ navItem.name }}
           </small>
         </button>
       </ng-container>

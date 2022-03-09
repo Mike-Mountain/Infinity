@@ -3,14 +3,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { createInitialLayout, LayoutModel } from '@infinity/schemas';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LayoutService {
-
   private layoutSrc = new BehaviorSubject<LayoutModel>(createInitialLayout());
 
-  constructor() {
-  }
+  constructor() {}
 
   selectLayout(): Observable<LayoutModel> {
     return this.layoutSrc.asObservable();
@@ -21,16 +19,18 @@ export class LayoutService {
   }
 
   toggleSideNavigation(direction?: 'close' | 'open') {
-    const open = direction ? direction === 'close' : this.getLayout().fileNavigation === '25%';
+    const open = direction
+      ? direction === 'close'
+      : this.getLayout().fileNavigation === '25%';
     this.updateLayout({
-      fileNavigation: open ? '0' : '25%'
+      fileNavigation: open ? '0' : '25%',
     });
   }
 
   toggleRunWindow() {
     const open = this.getLayout().runWindow === '37.5%';
     this.updateLayout({
-      runWindow: open ? '0' : '37.5%'
+      runWindow: open ? '0' : '37.5%',
     });
   }
 

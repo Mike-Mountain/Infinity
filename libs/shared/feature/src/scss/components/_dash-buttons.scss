@@ -1,4 +1,5 @@
-.dash-basic-button, .dash-icon-button {
+.dash-basic-button,
+.dash-icon-button {
   @extend .mat-button;
   box-sizing: border-box;
   position: relative;
@@ -16,7 +17,7 @@
   margin: 0;
   padding: 0 16px;
   overflow: visible;
-  transition: background-color .2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .dash-icon-button {
@@ -58,4 +59,3 @@
     background-color: rgba(var(--warnValues), 0.2) !important;
   }
 }
-

@@ -8,9 +8,8 @@ describe('BottomNavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BottomNavigationComponent ]
-    })
-    .compileComponents();
+      declarations: [BottomNavigationComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

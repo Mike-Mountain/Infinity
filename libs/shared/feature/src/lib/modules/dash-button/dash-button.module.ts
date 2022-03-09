@@ -5,21 +5,9 @@ import { ButtonComponent } from './components/button/button.component';
 import { ButtonClassPipe } from './pipes/button-class.pipe';
 import { ButtonDirective } from './directives/button.directive';
 
-
 @NgModule({
-  declarations: [
-    ButtonComponent,
-    ButtonClassPipe,
-    ButtonDirective
-  ],
-  imports: [
-    CommonModule,
-    MatButtonModule
-  ],
-  exports: [
-    ButtonComponent,
-    ButtonDirective
-  ]
+  declarations: [ButtonComponent, ButtonClassPipe, ButtonDirective],
+  imports: [CommonModule, MatButtonModule],
+  exports: [ButtonComponent, ButtonDirective],
 })
-export class DashButtonModule {
-}
+export class DashButtonModule {}

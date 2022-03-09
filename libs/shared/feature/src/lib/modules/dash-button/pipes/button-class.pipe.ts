@@ -2,10 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { ButtonType } from '../models/dash-button.model';
 
 @Pipe({
-  name: 'featureButtonClass'
+  name: 'featureButtonClass',
 })
 export class ButtonClassPipe implements PipeTransform {
-
   transform(type: ButtonType): string {
     switch (type) {
       case 'basic':
@@ -14,5 +13,4 @@ export class ButtonClassPipe implements PipeTransform {
         return 'mat-icon-button';
     }
   }
-
 }

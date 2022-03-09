@@ -5,15 +5,13 @@ import { LayoutService } from '@infinity/layout';
 @Component({
   selector: 'dash-lib-side-navigation',
   templateUrl: './side-navigation.component.html',
-  styleUrls: ['./side-navigation.component.scss']
+  styleUrls: ['./side-navigation.component.scss'],
 })
 export class SideNavigationComponent {
-
   @Input() navItems: SideNavItem[] = [];
   @Input() side: 'left' | 'right' = 'left';
 
-  constructor(private layoutService: LayoutService) {
-  }
+  constructor(private layoutService: LayoutService) {}
 
   updateContentState() {
     if (this.side === 'left') {
@@ -22,5 +20,4 @@ export class SideNavigationComponent {
       this.layoutService.toggleRunWindow();
     }
   }
-
 }

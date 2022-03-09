@@ -3,20 +3,21 @@ import { LayoutModel } from '@infinity/schemas';
 import { LayoutService } from '@infinity/layout';
 
 @Directive({
-  selector: '[dashLibLayout]'
+  selector: '[dashLibLayout]',
 })
 export class LayoutDirective implements OnInit {
-
   private readonly element: HTMLElement;
 
-  constructor(private el: ElementRef,
-              private renderer: Renderer2,
-              private layoutService: LayoutService) {
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private layoutService: LayoutService
+  ) {
     this.element = el.nativeElement;
   }
 
   ngOnInit(): void {
-    this.layoutService.selectLayout().subscribe(layout => {
+    this.layoutService.selectLayout().subscribe((layout) => {
       this.setLayout(layout);
     });
   }
@@ -41,5 +42,4 @@ export class LayoutDirective implements OnInit {
       `2rem 3fr ${bottomContent} 1.5rem 1.5rem`
     );
   }
-
 }

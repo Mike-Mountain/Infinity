@@ -4,23 +4,20 @@ import { LayoutService } from '@infinity/layout';
 @Component({
   selector: 'dash-lib-bottom-navigation',
   templateUrl: './bottom-navigation.component.html',
-  styleUrls: ['./bottom-navigation.component.scss']
+  styleUrls: ['./bottom-navigation.component.scss'],
 })
 export class BottomNavigationComponent {
-
-  constructor(private layoutService: LayoutService) {
-  }
+  constructor(private layoutService: LayoutService) {}
 
   updateBottomContent() {
     if (this.layoutService.getLayout().bottomContent === '0') {
       this.layoutService.updateLayout({
-        bottomContent: '3fr'
+        bottomContent: '3fr',
       });
     } else {
       this.layoutService.updateLayout({
-        bottomContent: '0'
+        bottomContent: '0',
       });
     }
   }
-
 }

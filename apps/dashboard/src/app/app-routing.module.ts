@@ -4,12 +4,16 @@ import { LandingComponent } from '@infinity/dashboard-lib';
 
 const routes: Routes = [
   { path: 'landing', component: LandingComponent },
-  { path: 'blog', loadChildren: () => import('blog/Module').then(m => m.RemoteEntryModule) }
+  {
+    path: 'blog',
+    loadChildren: () => import('blog/Module').then((m) => m.RemoteEntryModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' })],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

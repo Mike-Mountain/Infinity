@@ -1,13 +1,13 @@
-<ng-container *ngIf='role === "button"; else link'>
+<ng-container *ngIf="role === 'button'; else link">
   <button
     mat-button
     [class]="'mat-button-override ' + class"
-    [color]='color'
-    [disabled]='disabled'
-    [ngClass]='type | featureButtonClass'
-    [ngStyle]='style ? style : null'
+    [color]="color"
+    [disabled]="disabled"
+    [ngClass]="type | featureButtonClass"
+    [ngStyle]="style ? style : null"
   >
-    <ng-container *ngTemplateOutlet='content'></ng-container>
+    <ng-container *ngTemplateOutlet="content"></ng-container>
   </button>
 </ng-container>
 
@@ -15,15 +15,14 @@
   <a
     mat-button
     [class]="'mat-button-override ' + class"
-    [color]='color'
-    [disabled]='disabled'
-    [ngClass]='type'
-    [ngStyle]='style ? style : null'
+    [color]="color"
+    [disabled]="disabled"
+    [ngClass]="type"
+    [ngStyle]="style ? style : null"
   >
-    <ng-container *ngTemplateOutlet='content'></ng-container>
+    <ng-container *ngTemplateOutlet="content"></ng-container>
   </a>
 </ng-template>
-
 
 <ng-template #content>
   <ng-content></ng-content>

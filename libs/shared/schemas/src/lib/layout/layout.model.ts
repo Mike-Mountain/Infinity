@@ -4,11 +4,10 @@ export interface LayoutModel {
   bottomContent: string;
 }
 
-
 export function createInitialLayout(): LayoutModel {
   return {
     fileNavigation: '0',
     runWindow: '0',
-    bottomContent: '0'
-  } as LayoutModel
+    bottomContent: '0',
+  } as LayoutModel;
 }

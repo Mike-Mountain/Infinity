@@ -1,13 +1,19 @@
-<nav class='content-tabs'>
-  <ng-container *ngFor='let tab of (tabs$ | async)'>
+<nav class="content-tabs">
+  <ng-container *ngFor="let tab of tabs$ | async">
     <a
       featureButton
-      class='content-tab-button'
-      color='primary'
-      [routerLink]='tab.path'
+      class="content-tab-button"
+      color="primary"
+      [routerLink]="tab.path"
     >
-      {{tab.name}}
-      <button class='close-tab-button' featureButton color='primary' buttonType='icon' (click)='closeTab(tab, $event)'>
+      {{ tab.name }}
+      <button
+        class="close-tab-button"
+        featureButton
+        color="primary"
+        buttonType="icon"
+        (click)="closeTab(tab, $event)"
+      >
         <mat-icon>close</mat-icon>
       </button>
     </a>

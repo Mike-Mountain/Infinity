@@ -11,7 +11,6 @@ export * from './lib/modules/navigation/components/content-navigation/content-na
 export * from './lib/modules/navigation/components/side-navigation/side-navigation.component';
 export * from './lib/modules/navigation/components/top-navigation/top-navigation.component';
 
-
 // Directives
 export * from './lib/modules/core/directives/layout/layout.directive';
 

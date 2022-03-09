@@ -6,7 +6,6 @@ import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '@infinity/config';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [],
   imports: [
@@ -14,15 +13,14 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
-    AkitaNgRouterStoreModule
+    AkitaNgRouterStoreModule,
   ],
   exports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AkitaNgDevtools,
-    AkitaNgRouterStoreModule
-  ]
+    AkitaNgRouterStoreModule,
+  ],
 })
-export class SharedCoreModule {
-}
+export class SharedCoreModule {}

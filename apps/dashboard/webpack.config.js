@@ -29,14 +29,19 @@ sharedMappings.register(
   workspaceRootPath
 );
 
+const share = mf.share;
+mf.setInferVersion(true);
 module.exports = {
+  experiments: {
+    outputModule: true,
+  },
   output: {
     uniqueName: 'dashboard',
     publicPath: 'auto',
   },
   optimization: {
     runtimeChunk: false,
-    minimize: false,
+    minimize: true,
   },
   resolve: {
     alias: {
@@ -45,52 +50,55 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      remotes: {
-        blog: 'blog@http://localhost:4201/remoteEntry.js',
+      library: {
+        type: 'module',
       },
-      shared: {
+      remotes: {
+        blog: 'http://localhost:4201/remoteEntry.js',
+      },
+      shared: share({
         '@angular/core': {
           singleton: true,
           strictVersion: true,
-          requiredVersion: '^12.2.0',
+          requiredVersion: '13.2.5',
         },
         '@angular/common': {
           singleton: true,
           strictVersion: true,
-          requiredVersion: '^12.2.0',
+          requiredVersion: '13.2.5',
         },
         '@angular/common/http': {
           singleton: true,
           strictVersion: true,
-          requiredVersion: '^12.2.0',
+          requiredVersion: '13.2.5',
         },
         '@angular/router': {
           singleton: true,
           strictVersion: true,
-          requiredVersion: '^12.2.0',
+          requiredVersion: '13.2.5',
         },
         '@angular/material': {
           singleton: true,
           strictVersion: true,
-          requiredVersion: '^12.2.13',
+          requiredVersion: '13.2.5',
         },
         '@datorama/akita': {
           singleton: true,
           strictVersion: true,
-          requiredVersion: '^6.2.4',
+          requiredVersion: '^7.1.1',
         },
         '@datorama/akita-ng-entity-service': {
           singleton: true,
           strictVersion: true,
-          requiredVersion: '^6.0.0',
+          requiredVersion: '^7.0.0',
         },
         '@datorama/akita-ng-router-store': {
           singleton: true,
           strictVersion: true,
-          requiredVersion: '^6.0.0',
+          requiredVersion: '^7.0.0',
         },
         ...sharedMappings.getDescriptors(),
-      },
+      }),
     }),
     sharedMappings.getPlugin(),
   ],

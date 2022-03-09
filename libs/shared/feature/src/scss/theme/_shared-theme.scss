@@ -7,9 +7,9 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
-@import "palettes/primary";
-@import "palettes/accent";
-@import "palettes/warn";
+@import 'palettes/primary';
+@import 'palettes/accent';
+@import 'palettes/warn';
 
 // Define the palettes for your theme
 $shared-primary: mat.define-palette($primary);
@@ -21,22 +21,25 @@ $shared-warn: mat.define-palette($warn);
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 
-
-$shared-dark-theme: mat.define-dark-theme((
-  color: (
-    primary: $shared-primary,
-    accent: $shared-accent,
-    warn: $shared-warn,
+$shared-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $shared-primary,
+      accent: $shared-accent,
+      warn: $shared-warn,
+    ),
   )
-));
+);
 
-$shared-light-theme: mat.define-light-theme((
-  color: (
-    primary: $shared-primary,
-    accent: $shared-accent,
-    warn: $shared-warn,
+$shared-light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $shared-primary,
+      accent: $shared-accent,
+      warn: $shared-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component

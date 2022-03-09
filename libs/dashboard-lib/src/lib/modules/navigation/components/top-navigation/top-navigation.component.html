@@ -1,82 +1,82 @@
-<div class='h-100 w-100 flex-between'>
-  <nav class='breadcrumbs'>
-    <ng-container *ngFor='let crumb of mockCrumbs; let idx = index'>
-      <a class='crumb' [routerLink]='crumb.route'>
-        {{crumb.title}}
+<div class="h-100 w-100 flex-between">
+  <nav class="breadcrumbs">
+    <ng-container *ngFor="let crumb of mockCrumbs; let idx = index">
+      <a class="crumb" [routerLink]="crumb.route">
+        {{ crumb.title }}
       </a>
-      <mat-icon *ngIf='idx !== mockCrumbs.length - 1'>keyboard_arrow_right</mat-icon>
+      <mat-icon *ngIf="idx !== mockCrumbs.length - 1"
+        >keyboard_arrow_right</mat-icon
+      >
     </ng-container>
   </nav>
-  <nav class='app-nav'>
-    <ng-container *ngIf='selectedProject | async as project; else disabled'>
+  <nav class="app-nav">
+    <ng-container *ngIf="selectedProject | async as project; else disabled">
       <button
         featureButton
-        [buttonType]='"icon"'
-        [color]='"primary"'
-        class='icon-btn-sm flex-center'
+        [buttonType]="'icon'"
+        [color]="'primary'"
+        class="icon-btn-sm flex-center"
       >
-        <mat-icon class='icon-sm'>play_arrow</mat-icon>
+        <mat-icon class="icon-sm">play_arrow</mat-icon>
       </button>
     </ng-container>
     <ng-template #disabled>
       <button
         featureButton
-        [buttonType]='"icon"'
-        [color]='"primary"'
-        class='icon-btn-sm flex-center'
+        [buttonType]="'icon'"
+        [color]="'primary'"
+        class="icon-btn-sm flex-center"
       >
-        <mat-icon class='icon-sm'>play_arrow</mat-icon>
+        <mat-icon class="icon-sm">play_arrow</mat-icon>
       </button>
     </ng-template>
     |
     <button
       featureButton
-      [buttonType]='"icon"'
-      [color]='"primary"'
-      class='icon-btn-sm flex-center'
+      [buttonType]="'icon'"
+      [color]="'primary'"
+      class="icon-btn-sm flex-center"
     >
-      <mat-icon class='icon-sm'>code</mat-icon>
+      <mat-icon class="icon-sm">code</mat-icon>
     </button>
     <button
       featureButton
-      [buttonType]='"icon"'
-      [color]='"primary"'
-      class='icon-btn-sm flex-center'
-      routerLink='about'
+      [buttonType]="'icon'"
+      [color]="'primary'"
+      class="icon-btn-sm flex-center"
+      routerLink="about"
     >
-      <mat-icon class='icon-sm'>help</mat-icon>
+      <mat-icon class="icon-sm">help</mat-icon>
     </button>
     <button
       featureButton
-      [buttonType]='"icon"'
-      [color]='"primary"'
-      class='icon-btn-sm flex-center'
-      routerLink='about'
+      [buttonType]="'icon'"
+      [color]="'primary'"
+      class="icon-btn-sm flex-center"
+      routerLink="about"
     >
-      <mat-icon class='icon-sm'>home</mat-icon>
+      <mat-icon class="icon-sm">home</mat-icon>
     </button>
     |
     <button
       featureButton
-      [buttonType]='"icon"'
-      [color]='"primary"'
-      class='icon-btn-sm flex-center'
-      (click)='showSearch = !showSearch'
+      [buttonType]="'icon'"
+      [color]="'primary'"
+      class="icon-btn-sm flex-center"
+      (click)="showSearch = !showSearch"
     >
-      <mat-icon class='icon-sm'>search</mat-icon>
+      <mat-icon class="icon-sm">search</mat-icon>
     </button>
-    <ng-container *ngIf='showSearch'>
-      <input
-        matInput
-        type='search'>
+    <ng-container *ngIf="showSearch">
+      <input matInput type="search" />
     </ng-container>
     <button
       featureButton
-      [color]='"primary"'
-      [buttonType]='"icon"'
-      class='icon-btn-sm flex-center'
+      [color]="'primary'"
+      [buttonType]="'icon'"
+      class="icon-btn-sm flex-center"
     >
-      <mat-icon class='icon-sm'>more_vert</mat-icon>
+      <mat-icon class="icon-sm">more_vert</mat-icon>
     </button>
   </nav>
 </div>

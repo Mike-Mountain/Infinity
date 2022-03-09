@@ -5,9 +5,7 @@ import { BlogState } from '@infinity/schemas';
 
 @Injectable({ providedIn: 'root' })
 export class BlogService extends NgEntityService<BlogState> {
-
   constructor(protected store: BlogStore) {
     super(store);
   }
-
 }

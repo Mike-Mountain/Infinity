@@ -1,7 +1,7 @@
 import { EntityState } from '@datorama/akita';
 import { ResponseBase } from '../response-base/response-base.model';
 
-export type BlogState = EntityState<BlogPost>
+export type BlogState = EntityState<BlogPost>;
 
 export class BlogPost {
   id: number;
@@ -23,7 +23,7 @@ export class BlogResponse extends ResponseBase {
 
   constructor(params: Partial<BlogResponse>) {
     super(params);
-    this.data = params?.data?.map(post => new BlogPost(post)) || [];
+    this.data = params?.data?.map((post) => new BlogPost(post)) || [];
     this.meta = new BlogPagination(params?.meta);
   }
 }

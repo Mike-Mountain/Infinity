@@ -5,18 +5,18 @@ import { NavigationService } from '@infinity/navigation';
 import { createTab, NavigationTab } from '@infinity/schemas';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class InitService {
-
-  constructor(private router: Router,
-              private urlSerializer: UrlSerializer,
-              private layoutService: LayoutService,
-              private navigationService: NavigationService) {
-  }
+  constructor(
+    private router: Router,
+    private urlSerializer: UrlSerializer,
+    private layoutService: LayoutService,
+    private navigationService: NavigationService
+  ) {}
 
   public initializeApplication() {
-    this.router.events.subscribe(event => {
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         // Create an empty tab for the current route
         const tab: NavigationTab = createTab({});

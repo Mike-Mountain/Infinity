@@ -10,28 +10,29 @@ import { NavigationService } from '@infinity/navigation';
 @Component({
   selector: 'feature-blog-list',
   templateUrl: './blog-list.component.html',
-  styleUrls: ['./blog-list.component.scss']
+  styleUrls: ['./blog-list.component.scss'],
 })
 export class BlogListComponent implements OnInit {
-
   blogPosts$: Observable<BlogPost[]> | undefined;
   selectedPostId: number | undefined;
 
-  constructor(private blogPostQuery: BlogQuery,
-              private blogPostService: BlogService,
-              private navigationService: NavigationService,
-              private router: Router) {
-  }
+  constructor(
+    private blogPostQuery: BlogQuery,
+    private blogPostService: BlogService,
+    private navigationService: NavigationService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     if (!this.blogPostQuery.getHasCache()) {
       this.blogPostService.get().subscribe();
     }
     this.blogPosts$ = this.blogPostQuery.select().pipe(
-      map(posts => {
-        return new BlogResponse(JSON.parse(JSON.stringify(posts.entities))).data
+      map((posts) => {
+        return new BlogResponse(JSON.parse(JSON.stringify(posts.entities)))
+          .data;
       })
-    )
+    );
     this.selectedPostId = this.getPostIdFromUrl(this.router.url);
   }
 
@@ -44,7 +45,7 @@ export class BlogListComponent implements OnInit {
     this.navigationService.addTab({
       name: post.title,
       type: 'contentTab',
-      path: `/blog/${post.id}`
-    })
+      path: `/blog/${post.id}`,
+    });
   }
 }

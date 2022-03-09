@@ -15,6 +15,6 @@ export function createTab(params?: Partial<NavigationTab>) {
   return {
     path: params?.path || '',
     type: params?.type || 'contentTab',
-    name: params?.name || ''
+    name: params?.name || '',
   } as NavigationTab;
 }

@@ -14,25 +14,19 @@ function initFunction(initService: InitService) {
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    SharedCoreModule,
-    CoreModule,
-    NavigationModule,
-    AppRoutingModule
-  ],
+  imports: [SharedCoreModule, CoreModule, NavigationModule, AppRoutingModule],
   providers: [
     {
       provide: APP_INITIALIZER,
       useFactory: initFunction,
       deps: [InitService],
-      multi: true
+      multi: true,
     },
     {
       provide: NG_ENTITY_SERVICE_CONFIG,
-      useValue: { baseUrl: environment.apiUrl }
-    }
+      useValue: { baseUrl: environment.apiUrl },
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
