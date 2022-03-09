@@ -1,0 +1,121 @@
+{
+  "projectType": "application",
+  "root": "apps/blog",
+  "sourceRoot": "apps/blog/src",
+  "prefix": "blog-app",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/blog",
+        "index": "apps/blog/src/index.html",
+        "main": "apps/blog/src/main.ts",
+        "polyfills": "apps/blog/src/polyfills.ts",
+        "tsConfig": "apps/blog/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/blog/src/favicon.ico", "apps/blog/src/assets"],
+        "styles": ["apps/blog/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/blog/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "config/environment.ts",
+              "with": "config/prod/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/blog/webpack.prod.config.js"
+          }
+        },
+        "dev": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true,
+          "fileReplacements": [
+            {
+              "replace": "config/environment.ts",
+              "with": "config/dev/environment.dev.ts"
+            }
+          ]
+        },
+        "local": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true,
+          "fileReplacements": [
+            {
+              "replace": "config/environment.ts",
+              "with": "config/local/environment.local.ts"
+            }
+          ]
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "blog:build:production"
+        },
+        "dev": {
+          "browserTarget": "blog:build:dev"
+        },
+        "local": {
+          "browserTarget": "blog:build:local"
+        }
+      },
+      "defaultConfiguration": "local",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "blog:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/blog/src/**/*.ts", "apps/blog/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/blog"],
+      "options": {
+        "jestConfig": "apps/blog/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

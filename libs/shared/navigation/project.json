@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/navigation",
+  "sourceRoot": "libs/shared/navigation/src",
+  "prefix": "nav",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/navigation"],
+      "options": {
+        "jestConfig": "libs/shared/navigation/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/navigation/src/**/*.ts",
+          "libs/shared/navigation/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
