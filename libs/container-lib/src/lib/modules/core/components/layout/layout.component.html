@@ -1,0 +1,51 @@
+<div class="app-layout" ctrLibLayout>
+  <header class="top-nav flex-start">
+    <ctr-lib-top-navigation></ctr-lib-top-navigation>
+  </header>
+
+  <aside class="left-nav">
+    <ctr-lib-side-navigation
+      side="left"
+      [navItems]="leftNavItems"
+    ></ctr-lib-side-navigation>
+  </aside>
+
+  <aside class="left-content">
+    <feature-blog-list></feature-blog-list>
+  </aside>
+
+  <main class="main-content">
+    <div class="content-nav">
+      <ctr-lib-content-navigation
+        type="contentTab"
+      ></ctr-lib-content-navigation>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <aside class="right-content">
+    <div class="content-nav">
+      <ctr-lib-content-navigation type="runTab"></ctr-lib-content-navigation>
+    </div>
+    <div class="run-content">
+      <router-outlet name="run"></router-outlet>
+    </div>
+  </aside>
+
+  <aside class="right-nav">
+    <ctr-lib-side-navigation
+      side="right"
+      [navItems]="rightNavItems"
+    ></ctr-lib-side-navigation>
+  </aside>
+
+  <section class="bottom-content"></section>
+
+  <section class="bottom-nav">
+    <ctr-lib-bottom-navigation></ctr-lib-bottom-navigation>
+  </section>
+
+  <footer class="info-container"></footer>
+</div>

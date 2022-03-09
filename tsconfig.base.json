@@ -18,7 +18,7 @@
       "@infinity/blog-lib": ["libs/blog-lib/src/index.ts"],
       "@infinity/blog-lib/module/*": ["libs/blog-lib/src/lib/*"],
       "@infinity/config": ["config/index.ts"],
-      "@infinity/dashboard-lib": ["libs/dashboard-lib/src/index.ts"],
+      "@infinity/container-lib": ["libs/container-lib/src/index.ts"],
       "@infinity/data": ["libs/shared/data/src/index.ts"],
       "@infinity/feature": ["libs/shared/feature/src/index.ts"],
       "@infinity/layout": ["libs/shared/layout/src/index.ts"],
