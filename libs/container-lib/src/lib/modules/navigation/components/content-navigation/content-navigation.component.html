@@ -4,7 +4,8 @@
       featureButton
       class="content-tab-button"
       color="primary"
-      [routerLink]="tab.path"
+      [class.active-tab]='tab.selected'
+      (click)='routeToTab(tab)'
     >
       {{ tab.name }}
       <button

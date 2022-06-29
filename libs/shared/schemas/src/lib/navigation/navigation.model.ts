@@ -9,6 +9,7 @@ export interface NavigationTab {
   path: string;
   type: TabType;
   name: string;
+  selected?: boolean;
 }
 
 export function createTab(params?: Partial<NavigationTab>) {
@@ -16,5 +17,6 @@ export function createTab(params?: Partial<NavigationTab>) {
     path: params?.path || '',
     type: params?.type || 'contentTab',
     name: params?.name || '',
+    selected: params?.selected || false
   } as NavigationTab;
 }

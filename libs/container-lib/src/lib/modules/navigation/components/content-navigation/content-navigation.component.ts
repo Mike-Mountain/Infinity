@@ -19,6 +19,7 @@ export class ContentNavigationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.router.getCurrentNavigation());
     this.tabs$ =
       this.type && this.type === 'runTab'
         ? this.navigationService.getRunTabs()
@@ -29,5 +30,10 @@ export class ContentNavigationComponent implements OnInit {
     this.navigationService.removeTab(tab);
     event.stopImmediatePropagation();
     event.preventDefault();
+  }
+
+  routeToTab(tab: NavigationTab) {
+    tab.selected = true;
+    this.router.navigate([tab.path]);
   }
 }

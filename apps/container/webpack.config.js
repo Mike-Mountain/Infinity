@@ -20,11 +20,10 @@ const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
   tsConfigPath,
   [
-    '@infinity/navigation',
     '@infinity/layout',
-    '@infinity/data/src/lib/stores/blog/blog.store',
-    '@infinity/data/src/lib/stores/blog/blog.service',
-    '@infinity/data/src/lib/stores/blog/blog.query',
+    '@infinity/data',
+    '@infinity/schemas',
+    '@infinity/config',
   ],
   workspaceRootPath
 );

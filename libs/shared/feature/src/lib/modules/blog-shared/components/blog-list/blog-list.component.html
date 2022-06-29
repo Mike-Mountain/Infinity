@@ -1,11 +1,13 @@
-<ng-container *ngIf="blogPosts$ | async as blogPosts">
-  <ng-container *ngFor="let post of blogPosts">
-    <button
-      class="menu-button"
-      [class.menu-button-selected]="selectedPostId === post.id"
-      (click)="addNavigationTab(post)"
-    >
-      {{ post?.title }}
-    </button>
-  </ng-container>
+<ng-container *ngIf='blogPosts$ | async as blogPosts'>
+  <section class='blog-list'>
+    <ng-container *ngFor='let post of blogPosts'>
+      <button
+        class='menu-button'
+        [class.menu-button-selected]='selectedPostId === post.id'
+        (click)='addTab(post)'
+      >
+        {{ post?.title }}
+      </button>
+    </ng-container>
+  </section>
 </ng-container>
