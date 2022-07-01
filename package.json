@@ -9,7 +9,9 @@
     "mfe-local": "nx run container:serve-mfe",
     "mfe-dev": "nx run container:serve-mfe-dev",
     "mfe-test": "nx run container:test-mfe",
-    "mfe-build": "nx run container:build-mfe"
+    "mfe-build": "nx run container:build-mfe",
+    "create-mocks": "node mocks/utils/merge-mocks.js",
+    "mock-server": "json-server mocks/merged/mocks.json --routes mocks/utils/routes.json --watch"
   },
   "private": true,
   "dependencies": {
